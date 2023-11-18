@@ -29,7 +29,10 @@ const shouldRescheduleBuyAction = async (logger, data) => {
             afterDisabledPeriod,
             tradingView: {
               whenStrongBuy: tradingViewWhenStrongBuy,
-              whenBuy: tradingViewWhenBuy
+              whenBuy: tradingViewWhenBuy,
+              whenNeutral: tradingViewWhenNeutral,
+              whenSell: tradingViewWhenSell,
+              whenStrongSell: tradingViewWhenStrongSell
             }
           }
         }
@@ -85,6 +88,15 @@ const shouldRescheduleBuyAction = async (logger, data) => {
   }
   if (tradingViewWhenBuy) {
     allowedRecommendations.push('buy');
+  }
+  if (tradingViewWhenNeutral) {
+    allowedRecommendations.push('neutral');
+  }
+  if (tradingViewWhenSell) {
+    allowedRecommendations.push('sell');
+  }
+  if (tradingViewWhenStrongSell) {
+    allowedRecommendations.push('strong_sell');
   }
 
   const tradingViewSummaryRecommendation = _.get(

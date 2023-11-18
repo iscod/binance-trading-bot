@@ -24,7 +24,10 @@ const isAllowedTradingViewRecommendation = (logger, data) => {
       buy: {
         tradingView: {
           whenStrongBuy: tradingViewWhenStrongBuy,
-          whenBuy: tradingViewWhenBuy
+          whenBuy: tradingViewWhenBuy,
+          whenNeutral: tradingViewWhenNeutral,
+          whenSell: tradingViewWhenSell,
+          whenStrongSell: tradingViewWhenStrongSell
         }
       },
       botOptions: {
@@ -109,6 +112,17 @@ const isAllowedTradingViewRecommendation = (logger, data) => {
 
   if (tradingViewWhenBuy) {
     allowedRecommendations.push('buy');
+  }
+
+  if (tradingViewWhenNeutral) {
+    allowedRecommendations.push('neutral');
+  }
+
+  if (tradingViewWhenSell) {
+    allowedRecommendations.push('sell');
+  }
+  if (tradingViewWhenStrongSell) {
+    allowedRecommendations.push('strong_sell');
   }
 
   // If summary recommendation is not allowed recommendation, then prevent buy

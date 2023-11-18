@@ -750,6 +750,141 @@ class SymbolSettingIcon extends React.Component {
                                     </Form.Check>
                                   </Form.Group>
                                 </div>
+                                <div className='col-12'>
+                                  <Form.Group
+                                      controlId='field-buy-tradingview-when-neutral'
+                                      className='mb-2'>
+                                    <Form.Check size='sm'>
+                                      <Form.Check.Input
+                                          type='checkbox'
+                                          data-state-key='buy.tradingView.whenNeutral'
+                                          checked={
+                                            symbolConfiguration.buy.tradingView
+                                                .whenNeutral
+                                          }
+                                          onChange={this.handleInputChange}
+                                      />
+                                      <Form.Check.Label>
+                                        Allow buy trigger when recommendation is{' '}
+                                        <code>Neutral</code>{' '}
+                                        <OverlayTrigger
+                                            trigger='click'
+                                            key='buy-tradingview-when-neutral-overlay'
+                                            placement='bottom'
+                                            overlay={
+                                              <Popover id='buy-tradingview-when-neutral-overlay-right'>
+                                                <Popover.Content>
+                                                  If enabled, the bot will use
+                                                  TradingView recommendation to
+                                                  trigger the buy. If the buy
+                                                  trigger price is reached, the
+                                                  bot will check TradingView
+                                                  recommendation and if it is not
+                                                  `Neutral`, then the bot will not
+                                                  place a buy order.
+                                                </Popover.Content>
+                                              </Popover>
+                                            }>
+                                          <Button
+                                              variant='link'
+                                              className='p-0 m-0 ml-1 text-info'>
+                                            <i className='fas fa-question-circle fa-sm'></i>
+                                          </Button>
+                                        </OverlayTrigger>
+                                      </Form.Check.Label>
+                                    </Form.Check>
+                                  </Form.Group>
+                                </div>
+                                <div className='col-12'>
+                                  <Form.Group
+                                      controlId='field-buy-tradingview-when-sell'
+                                      className='mb-2'>
+                                    <Form.Check size='sm'>
+                                      <Form.Check.Input
+                                          type='checkbox'
+                                          data-state-key='buy.tradingView.whenSell'
+                                          checked={
+                                            symbolConfiguration.buy.tradingView
+                                                .whenSell
+                                          }
+                                          onChange={this.handleInputChange}
+                                      />
+                                      <Form.Check.Label>
+                                        Allow buy trigger when recommendation is{' '}
+                                        <code>Sell</code>{' '}
+                                        <OverlayTrigger
+                                            trigger='click'
+                                            key='buy-tradingview-when-sell-overlay'
+                                            placement='bottom'
+                                            overlay={
+                                              <Popover id='buy-tradingview-when-sell-overlay-right'>
+                                                <Popover.Content>
+                                                  If enabled, the bot will use
+                                                  TradingView recommendation to
+                                                  trigger the buy. If the buy
+                                                  trigger price is reached, the
+                                                  bot will check TradingView
+                                                  recommendation and if it is not
+                                                  `Sell`, then the bot will not
+                                                  place a buy order.
+                                                </Popover.Content>
+                                              </Popover>
+                                            }>
+                                          <Button
+                                              variant='link'
+                                              className='p-0 m-0 ml-1 text-info'>
+                                            <i className='fas fa-question-circle fa-sm'></i>
+                                          </Button>
+                                        </OverlayTrigger>
+                                      </Form.Check.Label>
+                                    </Form.Check>
+                                  </Form.Group>
+                                </div>
+                                <div className='col-12'>
+                                  <Form.Group
+                                      controlId='field-buy-tradingview-when-strong-sell'
+                                      className='mb-2'>
+                                    <Form.Check size='sm'>
+                                      <Form.Check.Input
+                                          type='checkbox'
+                                          data-state-key='buy.tradingView.whenStrongSell'
+                                          checked={
+                                            symbolConfiguration.buy.tradingView
+                                                .whenStrongSell
+                                          }
+                                          onChange={this.handleInputChange}
+                                      />
+                                      <Form.Check.Label>
+                                        Allow buy trigger when recommendation is{' '}
+                                        <code>Strong Sell</code>{' '}
+                                        <OverlayTrigger
+                                            trigger='click'
+                                            key='buy-tradingview-when-strong-sell-overlay'
+                                            placement='bottom'
+                                            overlay={
+                                              <Popover id='buy-tradingview-when-strong-sell-overlay-right'>
+                                                <Popover.Content>
+                                                  If enabled, the bot will use
+                                                  TradingView recommendation to
+                                                  trigger the buy. If the buy
+                                                  trigger price is reached, the
+                                                  bot will check TradingView
+                                                  recommendation and if it is not
+                                                  `Strong Sell`, then the bot will not
+                                                  place a buy order.
+                                                </Popover.Content>
+                                              </Popover>
+                                            }>
+                                          <Button
+                                              variant='link'
+                                              className='p-0 m-0 ml-1 text-info'>
+                                            <i className='fas fa-question-circle fa-sm'></i>
+                                          </Button>
+                                        </OverlayTrigger>
+                                      </Form.Check.Label>
+                                    </Form.Check>
+                                  </Form.Group>
+                                </div>
                               </div>
                             </Card.Body>
                           </Accordion.Collapse>
@@ -1002,6 +1137,124 @@ class SymbolSettingIcon extends React.Component {
                               <Accordion.Collapse eventKey='0'>
                                 <Card.Body className='px-2 py-1'>
                                   <div className='row'>
+                                    <div className='col-12'>
+                                      <Form.Group
+                                          controlId='field-sell-tradingview-force-sell-over-zero-below-trigger-price-when-strong-buy'
+                                          className='mb-2'>
+                                        <Form.Check size='sm'>
+                                          <Form.Check.Input
+                                              type='checkbox'
+                                              data-state-key='sell.tradingView.forceSellOverZeroBelowTriggerPrice.whenStrongBuy'
+                                              checked={
+                                                symbolConfiguration.sell
+                                                    .tradingView
+                                                    .forceSellOverZeroBelowTriggerPrice
+                                                    .whenStrongBuy
+                                              }
+                                              onChange={this.handleInputChange}
+                                          />
+                                          <Form.Check.Label>
+                                            Force sell at the market price when
+                                            recommendation is{' '}
+                                            <code>Strong buy</code> and the
+                                            profit is between <code>0</code> to{' '}
+                                            <code>trigger price</code>{' '}
+                                            <OverlayTrigger
+                                                trigger='click'
+                                                key='sell-tradingview-force-sell-over-zero-below-trigger-price-when-strong-buy-overlay'
+                                                placement='bottom'
+                                                overlay={
+                                                  <Popover id='sell-tradingview-force-sell-over-zero-below-trigger-price-when-strong-buy-overlay-right'>
+                                                    <Popover.Content>
+                                                      If enabled, the bot will use
+                                                      TradingView recommendation
+                                                      to sell the coin at the
+                                                      market price if the profit
+                                                      is over 0 but under the
+                                                      trigger price. When the
+                                                      condition is met and the
+                                                      TradingView recommendation
+                                                      is `Strong buy`, then the
+                                                      bot will place a market sell
+                                                      order immediately. If the
+                                                      auto-buy trigger is enabled,
+                                                      then it will place a buy
+                                                      order later. Note that this
+                                                      action can cause loss if the
+                                                      profit is less than
+                                                      commission.
+                                                    </Popover.Content>
+                                                  </Popover>
+                                                }>
+                                              <Button
+                                                  variant='link'
+                                                  className='p-0 m-0 ml-1 text-info'>
+                                                <i className='fas fa-question-circle fa-sm'></i>
+                                              </Button>
+                                            </OverlayTrigger>
+                                          </Form.Check.Label>
+                                        </Form.Check>
+                                      </Form.Group>
+                                    </div>
+                                    <div className='col-12'>
+                                      <Form.Group
+                                          controlId='field-sell-tradingview-force-sell-over-zero-below-trigger-price-when-buy'
+                                          className='mb-2'>
+                                        <Form.Check size='sm'>
+                                          <Form.Check.Input
+                                              type='checkbox'
+                                              data-state-key='sell.tradingView.forceSellOverZeroBelowTriggerPrice.whenBuy'
+                                              checked={
+                                                symbolConfiguration.sell
+                                                    .tradingView
+                                                    .forceSellOverZeroBelowTriggerPrice
+                                                    .whenBuy
+                                              }
+                                              onChange={this.handleInputChange}
+                                          />
+                                          <Form.Check.Label>
+                                            Force sell at the market price when
+                                            recommendation is{' '}
+                                            <code>Buy</code> and the profit
+                                            is between <code>0</code> to{' '}
+                                            <code>trigger price</code>{' '}
+                                            <OverlayTrigger
+                                                trigger='click'
+                                                key='sell-tradingview-force-sell-over-zero-below-trigger-price-when-buy-overlay'
+                                                placement='bottom'
+                                                overlay={
+                                                  <Popover id='sell-tradingview-force-sell-over-zero-below-trigger-price-when-buy-overlay-right'>
+                                                    <Popover.Content>
+                                                      If enabled, the bot will use
+                                                      TradingView recommendation
+                                                      to sell the coin at the
+                                                      market price if the profit
+                                                      is over 0 but under the
+                                                      trigger price. When the
+                                                      condition is met and the
+                                                      TradingView recommendation
+                                                      is `Buy`, then the bot
+                                                      will place a market sell
+                                                      order immediately. If the
+                                                      auto-buy trigger is enabled,
+                                                      then it will place a buy
+                                                      order later. Note that this
+                                                      action can cause loss if the
+                                                      profit is less than
+                                                      commission.
+                                                    </Popover.Content>
+                                                  </Popover>
+                                                }>
+                                              <Button
+                                                  variant='link'
+                                                  className='p-0 m-0 ml-1 text-info'>
+                                                <i className='fas fa-question-circle fa-sm'></i>
+                                              </Button>
+                                            </OverlayTrigger>
+                                          </Form.Check.Label>
+                                        </Form.Check>
+                                      </Form.Group>
+                                    </div>
                                     <div className='col-12'>
                                       <Form.Group
                                         controlId='field-sell-tradingview-force-sell-over-zero-below-trigger-price-when-neutral'

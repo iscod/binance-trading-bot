@@ -122,7 +122,10 @@
         },
         "tradingView": {
           "whenStrongBuy": true,
-          "whenBuy": true
+          "whenBuy": true,
+          "whenNeutral": false,
+          "whenSell": false,
+          "whenStrongSell": false
         }
       },
       "sell": {
@@ -144,6 +147,8 @@
         },
         "tradingView": {
           "forceSellOverZeroBelowTriggerPrice": {
+            "whenStrongBuy": false,
+            "whenBuy": false,
             "whenNeutral": false,
             "whenSell": false,
             "whenStrongSell": false

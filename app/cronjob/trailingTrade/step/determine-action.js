@@ -230,6 +230,8 @@ const shouldForceSellByTradingViewRecommendation = (logger, data) => {
       sell: {
         tradingView: {
           forceSellOverZeroBelowTriggerPrice: {
+            whenStrongBuy: tradingViewForceSellWhenStrongBuy,
+            whenBuy: tradingViewForceSellWhenBuy,
             whenNeutral: tradingViewForceSellWhenNeutral,
             whenSell: tradingViewForceSellWhenSell,
             whenStrongSell: tradingViewForceSellWhenStrongSell
@@ -251,6 +253,8 @@ const shouldForceSellByTradingViewRecommendation = (logger, data) => {
 
   // If tradingView force sell configuration is not enabled, then no need to process.
   if (
+    tradingViewForceSellWhenStrongBuy === false &&
+    tradingViewForceSellWhenBuy === false &&
     tradingViewForceSellWhenNeutral === false &&
     tradingViewForceSellWhenSell === false &&
     tradingViewForceSellWhenStrongSell === false
@@ -333,6 +337,15 @@ const shouldForceSellByTradingViewRecommendation = (logger, data) => {
 
   // Get force sell recommendation
   const forceSellRecommendations = [];
+
+  if (tradingViewForceSellWhenStrongBuy) {
+    forceSellRecommendations.push('strong_buy');
+  }
+
+  if (tradingViewForceSellWhenBuy) {
+    forceSellRecommendations.push('buy');
+  }
+
   if (tradingViewForceSellWhenNeutral) {
     forceSellRecommendations.push('neutral');
   }
