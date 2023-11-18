@@ -19,34 +19,32 @@ services:
       - .env
     restart: unless-stopped
     environment:
-      - BINANCE_MODE=test
-      # - BINANCE_MODE=live
+      #- BINANCE_MODE=test
+      - BINANCE_MODE=live
       - BINANCE_REDIS_HOST=binance-redis
       - BINANCE_REDIS_PORT=6379
       - BINANCE_REDIS_PASSWORD=secretp422
-      - BINANCE_TRADINGVIEW_HOST=tradingview
-      - BINANCE_TRADINGVIEW_PORT=8082
+#      - BINANCE_TRADINGVIEW_HOST=tradingview
+#      - BINANCE_TRADINGVIEW_PORT=8082
     ports:
       - 8080:80
     logging:
       driver: 'json-file'
       options:
         max-size: '1G'
-
   tradingview:
     container_name: tradingview
-    build:
-      context: ./tradingview
+    image: chrisleekr/binance-trading-bot:tradingview
     networks:
       - internal
     restart: unless-stopped
     environment:
-      - PYTHONUNBUFFERED=1
+#      - PYTHONUNBUFFERED=1
       # https://docs.python.org/3/howto/logging.html#logging-levels
       - BINANCE_TRADINGVIEW_LOG_LEVEL=INFO
-      - BINANCE_TRADINGVIEW_PORT=8082
-    ports:
-      - 8082:8082
+#      - BINANCE_TRADINGVIEW_PORT=8082
+#    ports:
+#      - 8082:8082
     logging:
       driver: 'json-file'
       options:
@@ -71,22 +69,24 @@ services:
   binance-mongo:
     container_name: binance-mongo
     image: mongo:3.2.20-jessie
+#   image: arm64v8/mongo:3.4 # The minimum version I can find was 3.4. Note that the app is using Mongo 3.2.20.
     restart: unless-stopped
     networks:
       - internal
     volumes:
       - mongo_data:/data/db
 
-  binance-mongo-express:
-    container_name: binance-mongo-express
-    image: mongo-express:0.54
-    restart: unless-stopped
-    networks:
-      - internal
-    ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_MONGODB_SERVER: binance-mongo
+#  binance-mongo-express:
+#    container_name: binance-mongo-express
+#    image: mongo-express:0.54
+##    image: arm64v8/mongo-express:0.54
+#    restart: unless-stopped
+#    networks:
+#      - internal
+#    ports:
+#      - 8081:8081
+#    environment:
+#      ME_CONFIG_MONGODB_SERVER: binance-mongo
 
 networks:
   internal:
