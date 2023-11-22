@@ -307,7 +307,7 @@ const shouldForceSellByTradingViewRecommendation = (logger, data) => {
   }
 
   // If current profit is less than 0 or current price is more than trigger price
-  if (sellCurrentProfit <= 0.5 || sellCurrentPrice > sellTriggerPrice) {
+  if (sellCurrentProfit <= 0.2 || sellCurrentPrice > sellTriggerPrice) {
     logger.info(
       { sellCurrentProfit, sellCurrentPrice, sellTriggerPrice },
       `Current profit if equal or less than 0 or ` +
